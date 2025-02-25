@@ -1,0 +1,40 @@
+body {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(34,193,195,1) 0%, rgba(167,45,253,1) 100%);
+    color: white;
+    margin: 20vh;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.label {
+    background: black;
+}
+
+.boton {
+    font-size: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.boton:hover {
+    background-color: black;
+    color: white;
+}
+
+.centro {
+    text-align: center;
+    align-items: center;
+}
+
+.fondo {
+    background: black;
+    
+}
+
+footer {
+    margin-top: 10px;
+    text-align: center;
+}
