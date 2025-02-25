@@ -4,17 +4,19 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div>
-
-        </div>
-        <div class="leon">
-            <h1><div class="label">BINARYSHOP</div></h1>
-            
-        </div>
+        <div class="title">
+			<h1>Binary<span>Shop</span></h1>
+		</div>
+		<div class="navbar">
+			<a href="./index.html">Inicio</a>
+			<a href="./login.html">Iniciar sesión</a>
+			<a href="./registro.html">Registrarse</a>
+		</div>
         
         <div class="centro">
-            <div>
-            <form class="fondo" id="formLogin" method="post" action="iniciarSesion()">
+            <h1>Iniciar Sesion</h1>
+            <div id="error"></div>
+            <form class="formulario" id="formLogin">
                 <p>
                     <label for="usuario">USUARIO</label><br>
                     <input type="text" id="usuario" required>
@@ -23,11 +25,19 @@
                     <label for="password">CONTRASEÑA</label><br>
                     <input type="password" id="password" required>
                 </p>
-                <button type="submit" onclick="iniciarSesion()">Enviar</button>
+                <p>
+                    <label for="tipoUsuario">TIPO DE USUARIO</label><br>
+                    <select id="tipoUsuario" name="tipoUsuario">
+                        <option value="comprador">Comprador</option>
+                        <option value="Vendedor">Vendedor</option>
+                        <option value="fiat">Personal</option>
+                      </select>
+                </p>
+                <button type="submit" class="boton">Enviar</button>
             </form>
         </div>
         </div>
 
-        <script src="./main.js"></script>
+        <script src="main.js"></script>
     </body>
 </html>
