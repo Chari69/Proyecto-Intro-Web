@@ -1,6 +1,7 @@
+/* Literalmente la fuente del Minecraft */
 @font-face {
 	font-family: "Monocraft";
-	src: url("./Monocraft.ttc");
+	src: url("./res/Monocraft.ttc");
 }
 
 body {

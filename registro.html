@@ -1,38 +1,69 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div>
+	<head>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div class="title">
+			<h1>Binary<span>Shop</span></h1>
+		</div>
+		<div class="navbar">
+			<a href="./index.html">Inicio</a>
+			<a href="./login.html">Iniciar sesión</a>
+			<a href="./registro.html">Registrarse</a>
+		</div>
 
-        </div>
-        <div class="leon">
-            <h1><div class="label">BINARYSHOP</div></h1>
-            
-        </div>
-        
-        <div class="centro">
-            <form class="fondo">
-                <p>
-                    <label for="usuario">Usuario</label><br>
-                    <input type="text" id="usuario" required>
-                </p>
-                <p>
-                    <label for="correo">Correo</label><br>
-                    <input type="text" id="correo" required>
-                </p>
-                <p>
-                    <label for="password">Contraseña</label><br>
-                    <input type="password" id="password" required>
-                </p>
-                <p>
-                    <label for="password">Repetir Contraseña</label><br>
-                    <input type="password" id="password" required>
-                </p>
-                <input type="submit">
-            </form>
-        </div>
-        </div>
-    </body>
+		<div class="centro">
+			<h1>Registrarse</h1>
+			<div id="error"></div>
+			<form class="formulario" id="formLogin">
+				<div class="box">
+					<h4>DATOS DE CUENTA</h4>
+					<hr />
+					<br />
+					<p>
+						<label for="nombreApellido">NOMBRE Y APELLIDO </label><br />
+						<input type="text" id="nombreApellido" required />
+					</p>
+					<p>
+						<label for="usuario">NICKNAME</label><br />
+						<input type="text" id="usuario" required />
+					</p>
+					<p>
+						<label for="password">CONTRASEÑA</label><br />
+						<input type="password" id="password" required />
+					</p>
+					<p>
+						<label for="repeatPassword">CONFIRMAR CONTRASEÑA</label><br />
+						<input type="repeatPassword" id="repeatPassword" required />
+					</p>
+					<p>
+						<label for="tipoUsuario">TIPO DE USUARIO</label><br />
+						<select id="tipoUsuario" name="tipoUsuario">
+							<option value="comprador">Comprador</option>
+							<option value="Vendedor">Vendedor</option>
+							<option value="fiat">Personal</option>
+						</select>
+					</p>
+				</div>
+				<br />
+				<div class="box">
+					<h4>DATOS BANCARIOS</h4>
+					<hr />
+					<br />
+					<p>
+						<label for="banco">BANCO</label><br />
+						<input type="text" id="banco" required />
+					</p>
+					<p>
+						<label for="cuenta">CUENTA</label><br />
+						<input type="text" id="cuenta" required />
+					</p>
+				</div>
+				<br />
+				<button type="submit" class="boton">Registrarse</button>
+			</form>
+		</div>
+		<script src="main.js"></script>
+	</body>
 </html>
