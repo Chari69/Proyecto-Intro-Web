@@ -126,6 +126,10 @@ footer {
 	box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75);
 }
 
+.formulario #descArt {
+	height: 150px;
+}
+
 .formulario label {
 	background-color: rgb(69, 153, 69);
 	border-radius: 10px;
@@ -148,4 +152,45 @@ footer {
 
 #error {
 	color: red;
+}
+
+.a-script {
+	cursor: pointer;
+}
+
+#articulo {
+	border: solid 2px black;
+	box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75);
+	padding: 20px;
+	text-align: left;
+	margin: 10px auto;
+	margin-bottom: 20px;
+	width: auto;
+	display: flex;
+	align-items: center;
+	max-width: 700px;
+}
+
+#articulo p {
+	margin: 2px;
+}
+
+#articulo #desc {
+	font-size: 12px;
+}
+
+.boton-discreto {
+	background: rgb(24, 102, 155);
+	color: white;
+	margin-right: 10px;
+	cursor: pointer;
+	margin-left: 30px;
+	padding: 5px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+}
+
+.boton-discreto:hover {
+	background-color: black;
+	color: white;
 }
