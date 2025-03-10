@@ -111,3 +111,7 @@ function eliminarUsuario() {
 function eliminarProducto() {
 
 }
+
+function panelVendedor() {
+	document.getElementById("mostrador").style.visibility = "visible";
+}
