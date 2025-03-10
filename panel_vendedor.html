@@ -10,8 +10,8 @@
 			<h1>Binary<span>Shop</span></h1>
 		</div>
 		<div class="navbar">
-			<a class="a-script" onclick="panelVendedor('ver')">Ver productos publicados</a>
-			<a class="a-script" onclick="panelVendedor('subir')">Subir Producto</a>
+			<a class="a-script" onclick="controladorPanel(1)">Ver productos publicados</a>
+			<a class="a-script" onclick="controladorPanel(2)">Subir Producto</a>
 			<a href="./index.html">Cerrar Sesion</a>
 		</div>
 
@@ -27,17 +27,17 @@
 					o puedes pulsar los botones de abajo. <br />
 					<br />
 
-					<button class="boton" onclick="panelVendedor('ver')">VER PRODUCTOS PUBLICADOS</button>
-					<button class="boton" onclick="panelVendedor('subir')">SUBIR PRODUCTO</button>
+					<button class="boton" onclick="controladorPanel(1)">VER PRODUCTOS PUBLICADOS</button>
+					<button class="boton" onclick="controladorPanel(2)">SUBIR PRODUCTO</button>
 				</div>
 			</div>
-			<div id="mostrador" hidden>
+			<div id="opcion1" hidden>
 				<div id="productos-pv">
 					<h2>PRODUCTOS PUBLICADOS</h2>
 					<div id="productos"></div>
 				</div>
 			</div>
-			<div id="subir" hidden>
+			<div id="opcion2" hidden>
 				<h2>SUBIR/PUBLICAR PRODUCTO</h2>
 				<form class="formulario" id="formPublicarProducto">
 					<p>

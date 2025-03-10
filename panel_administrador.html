@@ -1,1 +1,49 @@
-Administrador
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="styles.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>BinaryShop - Panel Administativo</title>
+	</head>
+	<body>
+		<div class="title">
+			<h1>Binary<span>Shop</span></h1>
+		</div>
+		<div class="navbar">
+			<a class="a-script" onclick="controladorPanel(1)">Eliminar Productos</a>
+			<a class="a-script" onclick="controladorPanel(2)">Eliminar Usuarios</a>
+			<a href="./index.html">Cerrar Sesion</a>
+		</div>
+
+		<div class="centro">
+			<div id="inicio">
+				<div class="box">
+					<h1><span class="label-green">PANEL DEL ADMINISTRADOR</span></h1>
+					<h2>Hola, @root</h2>
+					<br />
+					Estas en la pagina principal del panel del administador. <br />
+					Puedes eliminar usuarios o articulos publicados con <br />
+					alguno de los botones de la barra de navegacion, <br />
+					o puedes pulsar los botones de abajo. <br />
+					<br />
+
+					<button class="boton" onclick="controladorPanel(1)">ELIMINAR PRODUCTOS</button>
+					<button class="boton" onclick="controladorPanel(2)">ELIMINAR USUARIOS</button>
+				</div>
+			</div>
+			<div id="opcion1" hidden>
+				<div id="productos-pa">
+					<h2>Panel Administrativo</h2>
+					<h3>ELIMINAR PRODUCTOS</h3>
+					<div id="productos"></div>
+				</div>
+			</div>
+			<div id="opcion2" hidden>
+				<h2>Panel Administrativo</h2>
+				<h3>ELIMINAR USUARIOS</h3>
+				<div id="usuarios"></div>
+			</div>
+		</div>
+		<script src="main.js"></script>
+	</body>
+</html>

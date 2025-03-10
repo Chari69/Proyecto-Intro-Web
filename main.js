@@ -114,6 +114,7 @@ if (localStorage.getItem("producto") == null) {
 	localStorage.setItem("producto", JSON.stringify(producto));
 }
 
+// Inicio de sesion
 function iniciarSesion(event) {
 	event.preventDefault(); // Previene que la pagina se recargue.
 
@@ -180,8 +181,12 @@ function mostrarProductos(tipoCuenta) {
 	var productosHTML = document.getElementById("productos");
 	const productoGuardado = JSON.parse(localStorage.getItem("producto"));
 
-	if (tipoCuenta == "vendedor" || tipoCuenta == "admin") {
-		for (var i = 0; i < Object.keys(productoGuardado).length; i++) {
+	if (productoGuardado.length == 0) {
+		productosHTML.innerHTML = "<h1 style='color:red;'>No hay productos disponibles.</h1>";
+	}
+
+	if (tipoCuenta == "vendedor") {
+		for (var i = 0; i < productoGuardado.length; i++) {
 			productosHTML.innerHTML += `
 				<div id="articulo"">
 					<div style="flex: 1;">
@@ -195,7 +200,28 @@ function mostrarProductos(tipoCuenta) {
 					</div>
 					<div style="flex: 0;">
 						<button class="boton-discreto" onclick="">Ver detalles</button>
-						<button class="boton-discreto" onclick="">Eliminar</button>
+					</div>
+				</div>
+			`;
+		}
+	}
+
+	if (tipoCuenta == "admin") {
+		for (var i = 0; i < productoGuardado.length; i++) {
+			productosHTML.innerHTML += `
+				<div id="articulo"">
+					<div style="flex: 1;">
+						<img src="${productoGuardado[i].img}" alt="Imagen del producto" width="100" height="100" />
+					</div>
+					<div style="flex: 4;">
+						<h3>${productoGuardado[i].nombre}</h3>
+						<p id="desc">${productoGuardado[i].descripcion}</p>
+						<p><span class='label-green'>Precio:</span> ${productoGuardado[i].precio} USD</p>
+						<p><span class='label-green'>Cantidad disponible:</span> ${productoGuardado[i].cantidad}</p>
+					</div>
+					<div style="flex: 0;">
+						<button class="boton-discreto" onclick="">Ver detalles</button>
+						<button class="boton-discreto" style="background:#a32a30;" onclick="eliminarProducto(${i})">Eliminar Producto</button>
 					</div>
 				</div>
 			`;
@@ -203,7 +229,7 @@ function mostrarProductos(tipoCuenta) {
 	}
 
 	if (tipoCuenta == "comprador") {
-		for (var i = 0; i < Object.keys(productoGuardado).length; i++) {
+		for (var i = 0; i < productoGuardado.length; i++) {
 			productosHTML.innerHTML += `
 				<div id="articulo"">
 					<div style="flex: 1;">
@@ -228,23 +254,65 @@ if (document.getElementById("productos-pv")) {
 	mostrarProductos("vendedor");
 } else if (document.getElementById("productos-pc")) {
 	mostrarProductos("comprador");
+	controladorPanel(1);
 } else if (document.getElementById("productos-pa")) {
 	mostrarProductos("admin");
+	mostrarUsuarios();
 }
 
+function controladorPanel(valor) {
+	if (valor == 1) {
+		document.getElementById("inicio").style.display = "none";
+		document.getElementById("opcion2").style.display = "none";
+		document.getElementById("opcion1").style.display = "block";
+	} else if (valor == 2) {
+		document.getElementById("inicio").style.display = "none";
+		document.getElementById("opcion1").style.display = "none";
+		document.getElementById("opcion2").style.display = "block";
+	}
+}
+
+function mostrarUsuarios() {
+	var listaUsuarios = document.getElementById("usuarios");
+	listaUsuarios.innerHTML = `
+		<table>
+			<thead>
+				<tr>
+					<th>Nickname</th>
+					<th>Nombre</th>
+					<th>Administrar</th>
+				</tr>
+			</thead>
+			<tbody id="usuarios-cuerpo"></tbody>
+		</table>
+	`;
+	var cuerpoTabla = document.getElementById("usuarios-cuerpo");
+	for (var i = 0; i < usuarios.length; i++) {
+		var fila = cuerpoTabla.insertRow();
+		fila.insertCell(0).innerText = `@${usuarios[i].nickname}`;
+		fila.insertCell(1).innerText = usuarios[i].nombre;
+		fila.insertCell(2).innerHTML = `<button class="boton-discreto" style="background:#a32a30;" onclick="eliminarUsuario(${i})">Eliminar Usuario</button>`;
+	}
+}
 // Funciones de los administradores
-function eliminarUsuario() {}
+function eliminarUsuario() {
+	alert("Usuario eliminado correctamente.");
+}
 
-function eliminarProducto() {}
+function eliminarProducto(producto) {
+	const productoGuardado = JSON.parse(localStorage.getItem("producto"));
+	alert(`El producto "${productoGuardado[producto].nombre}" ha sido eliminado correctamente del sitio web.`);
+	// Eliminar el producto seleccionado
+	// .splice() lo que hace es eliminar o agregar elementos de un array en alguna posicion del mismo.
+	productoGuardado.splice(producto, 1);
+	localStorage.setItem("producto", JSON.stringify(productoGuardado));
+	localStorage.setItem("prodElimRec", true);
+	location.reload();
+}
 
-function panelVendedor(valor) {
-	if (valor == "ver") {
-		document.getElementById("inicio").style.display = "none";
-		document.getElementById("subir").style.display = "none";
-		document.getElementById("mostrador").style.display = "block";
-	} else if (valor == "subir") {
-		document.getElementById("inicio").style.display = "none";
-		document.getElementById("mostrador").style.display = "none";
-		document.getElementById("subir").style.display = "block";
+if (document.getElementById("productos-pa")) {
+	if (localStorage.getItem("prodElimRec") == "true") {
+		localStorage.removeItem("prodElimRec");
+		controladorPanel(1);
 	}
 }
