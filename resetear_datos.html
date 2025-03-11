@@ -1,0 +1,25 @@
+<!--    
+    Esto elimina todos los datos guardados en localStorage, 
+    es como si un administrador borrara toda la base de datos de
+    la pagina y la llevara a los valores por defecto.
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Resetar datos de la Aplicacion.</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div class="centro">
+			<div id="resetMsg">
+				<h1>¿Estas seguro de querer llevar a BinaryShop a los valores por defecto?</h1>
+				<p>Esto borrara los datos almacenado en localStorage y se asignaran los valores por defecto.</p>
+				<button style="cursor: pointer" onclick="resetearDatos()">Si, quiero resetear los datos</button>
+				<button style="cursor: pointer" onclick="window.location.href = './panel_administrador.html'">Volver al Panel Administrativo</button>
+			</div>
+			<div id="reseteo"></div>
+		</div>
+		<script src="main.js"></script>
+	</body>
+</html>

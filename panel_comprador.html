@@ -11,24 +11,26 @@
 		</div>
 		<div class="navbar">
 			<a class="a-script" onclick="controladorPanel(1)">Listado de Productos</a>
-			<a class="a-script" onclick="controladorPanel(2)">Carrito de Compra (Numero)</a>
-			<a class="a-script" onclick="controladorPanel(3)">Tu cuenta</a>
+			<a class="a-script" id="carrito" onclick="controladorPanel(2)">Carrito de Compra <label class="label-green">(0)</label></a>
 			<a href="./index.html">Cerrar Sesion</a>
 		</div>
 
 		<div class="centro">
-			<!-- Para evitar que se rompa -->
-			<div id="inicio"></div>
-			<div id="inicio-comprador">Bienvenido, usuario comprador</div>
+			<div id="inicio-comprador">
+				<h2>Bienvenido a BinaryShop, @dancabello</h2>
+				<hr />
+			</div>
 			<div id="opcion1" hidden>
 				<div id="productos-pc">
 					<div id="productos"></div>
 				</div>
 			</div>
 			<div id="opcion2" hidden>
+				<div id="carritoStats"></div>
 				<h2>Carrito de Compras</h2>
-				<div id="carrito"></div>
+				<div id="carritoLista"></div>
 			</div>
+			<div id="inicio" hidden></div>
 		</div>
 		<script src="main.js"></script>
 	</body>

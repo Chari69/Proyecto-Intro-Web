@@ -195,6 +195,12 @@ footer {
 	color: white;
 }
 
+.boton-discreto:disabled {
+	background: rgb(155, 155, 155);
+	color: aliceblue;
+	cursor: not-allowed;
+}
+
 table {
 	width: 50%;
 	margin: auto;
@@ -216,4 +222,8 @@ td {
 th {
 	background-color: rgb(69, 153, 69);
 	color: white;
+}
+
+.sep {
+	margin-left: 20px;
 }
